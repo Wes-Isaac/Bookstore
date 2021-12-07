@@ -1,16 +1,15 @@
-import Book from "./Book";
-import Form from "./Form";
+import Book from './Book';
+import Form from './Form';
 
-
-export default function BookList({bookList}) {
-  console.log(bookList)
+export default function BookList({ bookList }) {
   return (
     <div>
       <ul>
-      {bookList.map((book) => <Book book={book} />)}
+        {bookList.map((book) => (
+          <Book key={book.id} book={book} />
+        ))}
       </ul>
       <Form />
-
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function Form() {
   return (
@@ -9,5 +9,5 @@ export default function Form() {
         <button type="submit"> Add Book </button>
       </form>
     </div>
-  )
+  );
 }

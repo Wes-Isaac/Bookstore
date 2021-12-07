@@ -10,5 +10,5 @@ export default function Navbar() {
         <Link to="/catagories">Catagories</Link>
       </div>
     </nav>
-  )
+  );
 }
