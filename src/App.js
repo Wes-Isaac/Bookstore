@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Catagories from './components/Catagories';
 import './App.css';
+import BookList from './components/BookList';
+
+const bookList = [{
+  id: 1, title: 'Harry Potter and the Goblet', author: 'J. K. Rowling',
+}, {
+  id: 2, title: 'Dune', author: 'Frank Herbert',
+}, {
+  id: 3, title: 'Harry Potter and the Deathly Hallows', author: 'J. K. Rowling',
+}];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+            <Route exact path="/" element={<BookList />} />
+            <Route exact path="/catagories" element={<Catagories />} />
+          </Routes>
+      </div>
+    </Router>
   );
 }
 
