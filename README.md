@@ -1,12 +1,13 @@
-# Math Magicians
+# Book Store
 
-> Project for getting starting with React.
+> This project will lay foundations for your Bookstore website. I will create a React and Redux app. I'll structure my files using the "feature folder" approach. I will also set up routing using React Router.
 
 
 ## Built With
 
 - HTML, CSS, and JavaScript
 - React
+- Redux
 - git/GitHub
 
 ### `Getting Started
