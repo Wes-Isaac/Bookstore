@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
+import booksReducer from './books/book';
+
 
 const store = configureStore({
-  reducer: {
-  },
+  reducer: { books: booksReducer },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
