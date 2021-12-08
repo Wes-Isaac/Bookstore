@@ -8,7 +8,7 @@ export default function Book({ book }) {
     <li>
       <span>{` ${book.title} `}</span>
       <span>{` ${book.author} `}</span>
-      <button type="button"  onClick={() => dispatch(removeBook(book.id))}>Remove book</button>
+      <button type="button" onClick={() => dispatch(removeBook(book.id))}>Remove book</button>
     </li>
   );
 }
