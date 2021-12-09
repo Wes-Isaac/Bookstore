@@ -20,13 +20,23 @@ const bookSlice = createSlice(
 
 const getBooks = async (dispatch) => {
   const res = await axios.get(appUrl);
-  bookList = res.data;
-  dispatch({ type: 'book/getBooks', payload: bookList });
+  const bookList =Object.entries(res.data).map(([id, [book]]) => (
+    {
+      item_id: id,
+      title: book.title,
+      category: book.category,
+    }
+  ));
+  dispatch({ type: 'books/getBooks', payload: bookList });
 }
 
-const addBook = async (book) => {
-  const addBookThunk = (dispatch) => {
-    const res = await axios.post(appUrl);
+const addBook = (book) => {
+  const addBookThunk = async (dispatch) => {
+    const res = await axios.post(appUrl,  {
+      item_id: book.item_id,
+      title: book.title,
+      category: book.category,
+    });
     if (res.status) {
       dispatch({ type: 'books/addBook', payload: book });
     }
@@ -34,18 +44,15 @@ const addBook = async (book) => {
   return addBookThunk;
 }
 
-const removeBook = async (id) => {
+const removeBook = (id) => {
   const deleteBookThunk = async (dispatch) => {
     const res = await axios.delete(`${appUrl}/${id}`);
-
-    
-    const msg = res;
-    if (msg.status) {
+    if (res.status) {
       dispatch({ type: 'books/removeBook', payload: id });
     }
   };
-  return delBookThunk;
+  return deleteBookThunk;
 }
 
-export const { addBook, removeBook } = bookSlice.actions;
+export { addBook, getBooks, removeBook };
 export default bookSlice.reducer;
