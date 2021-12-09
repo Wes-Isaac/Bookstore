@@ -22,7 +22,7 @@ export default function Form() {
     <div>
       <form id="add-book-form" onSubmit={(e) => submitForm(e)}>
         <input placeholder="Book Title" className="title" />
-        <input placeholder="Book Author" className="category" />
+        <input placeholder="Category" className="category" />
         <button type="submit"> Add Book </button>
       </form>
     </div>
