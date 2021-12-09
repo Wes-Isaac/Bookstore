@@ -1,7 +1,6 @@
 import { createSlice, current } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
 const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
 const key = 'opQreyKrNQepd5FMlRdY';
 const appUrl = `${baseUrl}/apps/${key}/books`;
@@ -20,7 +19,7 @@ const bookSlice = createSlice(
 
 const getBooks = async (dispatch) => {
   const res = await axios.get(appUrl);
-  const bookList =Object.entries(res.data).map(([id, [book]]) => (
+  const bookList = Object.entries(res.data).map(([id, [book]]) => (
     {
       item_id: id,
       title: book.title,
@@ -28,11 +27,11 @@ const getBooks = async (dispatch) => {
     }
   ));
   dispatch({ type: 'books/getBooks', payload: bookList });
-}
+};
 
 const addBook = (book) => {
   const addBookThunk = async (dispatch) => {
-    const res = await axios.post(appUrl,  {
+    const res = await axios.post(appUrl, {
       item_id: book.item_id,
       title: book.title,
       category: book.category,
@@ -40,9 +39,9 @@ const addBook = (book) => {
     if (res.status) {
       dispatch({ type: 'books/addBook', payload: book });
     }
-  }
+  };
   return addBookThunk;
-}
+};
 
 const removeBook = (id) => {
   const deleteBookThunk = async (dispatch) => {
@@ -52,7 +51,7 @@ const removeBook = (id) => {
     }
   };
   return deleteBookThunk;
-}
+};
 
 export { addBook, getBooks, removeBook };
 export default bookSlice.reducer;
