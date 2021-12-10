@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Roboto+Slab&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Roboto+Slab&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-}
-
-:root {
-  --bg-color:#fff;
-  --place-color: #c4c4c4;
 }
 
 body {
@@ -16,7 +12,7 @@ body {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: #fcfcfc;
 }
 
@@ -40,17 +36,14 @@ nav {
   align-items: center;
 }
 
-
 a {
   text-decoration: none;
-  font-family: Montserrat;
   font-size: 0.813rem;
   margin: auto 5px;
 }
 
 .head {
   color: #0290ff;
-  font-family: Montserrat;
   font-size: 1.875rem;
   font-weight: bolder;
 }
@@ -82,7 +75,7 @@ ul .list-item p {
 }
 
 .book-title {
-  font-family: RobotoSlab;
+  font-family: "RobotoSlab", sans-serif;
   font-size: 1.575rem;
   font-weight: bolder;
 }
